@@ -3,11 +3,10 @@ package univer.webdev.gettingstarted.Model;
 import jakarta.annotation.Nullable;
 import lombok.*;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Table;
 
-import java.util.Date;
+import java.time.LocalDate;
 
-@Table("Project")
+@Data
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
@@ -24,8 +23,9 @@ public class Project {
     private String description;
 
     @NonNull
-    private Date end;
+    private LocalDate begin;
 
     @NonNull
-    private Boolean isFinished;
+    private LocalDate end;
+
 }

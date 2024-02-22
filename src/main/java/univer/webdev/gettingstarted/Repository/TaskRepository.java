@@ -1,32 +1,31 @@
 package univer.webdev.gettingstarted.Repository;
 
+import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import univer.webdev.gettingstarted.Model.*;
 
 import java.util.Date;
+import java.util.Optional;
 import java.util.Set;
 
-@Repository
-public interface TaskRepository  extends CrudRepository<Task, Integer> {
+public interface TaskRepository {
 
-    void create(Task prj);
+	Optional<Task> add(
+			String name,
+			String description,
+			Date end,
+			Boolean isFinished,
+			Long prjId
+	);
 
-    Set<Task> getById(Long id);
-    Set<Task> getByName(String name);
-    Set<Task> getByBegin(Date begin);
-    Set<Task> getByEnd(Date end);
+	Set<Task> getByProject(Long prjId);
+	Set<Task> getByProject(Project prj);
 
+	void update(Task t);
 
-    void setId(Task task, Long id);
-    void setName(Task task, String name);
-    void setBegin(Task task, Date begin);
-    void setEnd(Task task, Date end);
+	Long createOrUpdate(Task t);
 
-    void deleteById();
-    void deleteByName();
-    void deleteByBeginDate(Date date);
-    void deleteByEndDate(Date date);
-    void deleteByBeginEndDate(Date date);
+	void delete(Task t);
 
 }

@@ -3,11 +3,11 @@ package univer.webdev.gettingstarted.Model;
 import jakarta.annotation.Nullable;
 import lombok.*;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.Date;
+import java.util.Set;
 
-@Table("Task")
+@Data
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
@@ -24,8 +24,11 @@ public class Task {
     private String description;
 
     @NonNull
-    private Date begin;
+    private Date end;
 
     @NonNull
-    private Date end;
+    private Boolean isFinished;
+
+    @NonNull
+    private Long prjId;
 }
