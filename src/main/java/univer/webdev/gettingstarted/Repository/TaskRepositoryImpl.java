@@ -2,11 +2,11 @@ package univer.webdev.gettingstarted.Repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 import univer.webdev.gettingstarted.Model.Project;
 import univer.webdev.gettingstarted.Model.Task;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Optional;
 import java.util.Set;
@@ -21,8 +21,8 @@ public class TaskRepositoryImpl implements TaskRepository{
 		this.template = template;
 	}
 	@Override
-	public Optional<Task> add(String name, String description, Date end, Boolean isFinished, Long prjId) {
-		Long id = template.queryForObject("SELECT Task_ID.NEXTVAL FROM getting_started.public.Task_ID", new Object[0], Long.class);
+	public Optional<Task> add(String name, String description, LocalDate end, Boolean isFinished, Long prjId) {
+		Long id = template.queryForObject("SELECT nextval('Task_ID')", Long.class);
 		template.update("INSERT INTO Task VALUES (?,?,?,?,?)",id, name, description, end, isFinished, prjId);
 		return Optional.of(
 			new Task(id, name, description, end, isFinished, prjId)

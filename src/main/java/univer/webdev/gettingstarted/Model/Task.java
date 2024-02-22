@@ -4,8 +4,7 @@ import jakarta.annotation.Nullable;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 
-import java.util.Date;
-import java.util.Set;
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -24,7 +23,7 @@ public class Task {
     private String description;
 
     @NonNull
-    private Date end;
+    private LocalDate end;
 
     @NonNull
     private Boolean isFinished;
