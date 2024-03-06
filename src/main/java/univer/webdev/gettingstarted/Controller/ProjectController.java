@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import univer.webdev.gettingstarted.Dto.ProjectDto;
 import univer.webdev.gettingstarted.Service.ProjectService;
 
 import java.time.LocalDate;
@@ -40,35 +41,16 @@ public class ProjectController {
 	// Создание проекта
 	@PostMapping
 	ResponseEntity createProject(
-			@RequestBody Map<String,String> rb
-	) {
-		Optional<String>    name = Optional.ofNullable(rb.get("name"));
-		Optional<String>    description = Optional.ofNullable(rb.get("description"));
-		Optional<LocalDate> begin = Optional.empty();
-		Optional<LocalDate> end = Optional.empty();
-		var begin_rv = rb.get("begin");
-		if (begin_rv != null)
-			begin = Optional.of(LocalDate.parse(begin_rv));
-		var end_rv = rb.get("end");
-		if (end_rv != null)
-			end = Optional.of(LocalDate.parse(end_rv));
-		if (name.isEmpty())
-			name = Optional.of("Без имени");
-		if (description.isEmpty())
-			description = Optional.of("");
-		if (begin.isEmpty()) if (end.isEmpty()) {
-			begin = Optional.of(LocalDate.now());
-			end = Optional.of(begin.get().plusWeeks(1));
-		} else begin = Optional.of(end.get().minusWeeks(1));
-		else if (end.isEmpty()) end = Optional.of(begin.get().plusWeeks(1));
+			@RequestBody ProjectDto rb
+			) {
 
-		if (!begin.get().isBefore(end.get())) return new ResponseEntity<>("createProject", HttpStatus.BAD_REQUEST);
+		if (!rb.getBegin().isBefore(rb.getEnd())) return new ResponseEntity<>("createProject", HttpStatus.BAD_REQUEST);
 
 		var res = this.projectService.create(
-				name.get(),
-				description.get(),
-				begin.get(),
-				end.get()
+				rb.getName(),
+				rb.getDescription(),
+				rb.getBegin(),
+				rb.getEnd()
 		);
 		if (res.isEmpty()) return new ResponseEntity<>("createProject", HttpStatus.BAD_REQUEST);
 		else return new ResponseEntity<>(res.get(), HttpStatus.valueOf(201));

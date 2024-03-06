@@ -1,13 +1,17 @@
 package univer.webdev.gettingstarted.Service;
 
 import lombok.AllArgsConstructor;
+import org.apache.catalina.mapper.Mapper;
 import org.springframework.stereotype.Service;
+import univer.webdev.gettingstarted.Dto.ProjectDto;
 import univer.webdev.gettingstarted.Model.Project;
 import univer.webdev.gettingstarted.Repository.ProjectRepository;
 
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -17,13 +21,24 @@ public class ProjectService {
     //    Создание проекта.
     //    POST /projects
     //    Должен вернуть 201 код в случае успешного создания проекта, а также сущность созданного проекта.
-    public Optional<Project> create(
+    public Optional<ProjectDto> create(
             String name,
             String description,
             LocalDate begin,
             LocalDate end
     ) {
-        return projectRepository.create( name,  description,  begin,  end);
+        var dbo = projectRepository.create( name,  description,  begin,  end);
+        if (dbo.isPresent())
+            return Optional.of(
+                    new ProjectDto(
+                            dbo.get().getId(),
+                            dbo.get().getName(),
+                            dbo.get().getDescription(),
+                            dbo.get().getBegin(),
+                            dbo.get().getEnd()
+                    )
+            );
+        return Optional.empty();
     }
 
     //    Модификация проекта
@@ -55,13 +70,30 @@ public class ProjectService {
     //    Получение проекта
     //    GET /projects/{projectId}
     //    Вернуть 404 код ошибки если не найден.
-    public Optional<Project> getById(Long id) {
-        return projectRepository.getById(id);
+    public Optional<ProjectDto> getById(Long id) {
+        var dbo = projectRepository.getById(id);
+        if (dbo.isPresent()) {
+            var mod = dbo.get();
+            var pojo = new ProjectDto(mod.getId(), mod.getName(), mod.getDescription(), mod.getBegin(), mod.getEnd());
+            return Optional.of(pojo);
+        }
+        return Optional.empty();
     }
 
     //    Получение проектов с фильтрацией по диапазону. Дата начала и дата окончания должна быть в переданном интервале
     //    GET /projects?start_date={start_date}&end_date={end_date}
-    public Set<Project> getByRange(LocalDate begin, LocalDate end) {
-        return projectRepository.getByRange(begin, end);
+    public Set<ProjectDto> getByRange(LocalDate begin, LocalDate end) {
+        return projectRepository.getByRange(
+                begin, end
+        ).stream().map(
+                        (Project p) -> {
+                            return new ProjectDto(
+                                    p.getId(),
+                                    p.getName(),
+                                    p.getDescription(),
+                                    p.getBegin(),
+                                    p.getEnd());
+                        }
+                        ).collect(Collectors.toSet());
     }
 }
