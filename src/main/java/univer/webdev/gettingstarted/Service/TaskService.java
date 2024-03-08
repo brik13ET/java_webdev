@@ -7,6 +7,5 @@ import univer.webdev.gettingstarted.Repository.TaskRepository;
 @Service
 @AllArgsConstructor
 public class TaskService {
-
     private final TaskRepository taskRepository;
 }
