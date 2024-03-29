@@ -10,6 +10,5 @@ import java.util.Set;
 
 @Repository
 public interface ProjectRepository extends JpaRepository<Project,Long> {
-//	public Optional<Project> findOneById(Long id);
 	public Set<Project> findByBeginGreaterThanEqualAndEndLessThanEqual(LocalDate from, LocalDate to);
 }

@@ -14,11 +14,10 @@ Content-Type: application/json
 
 ###
 # @name mod project
-PUT localhost:8080/projects
+PUT localhost:8080/projects/1
 Content-Type: application/json
 
 {
-    "id": 1,
     "name": "Проект 1",
     "description": "Тестовый проект котрый не имеет какого либо смысла",
     "begin": "2024-02-22",

@@ -8,10 +8,7 @@ import univer.webdev.gettingstarted.Model.Project;
 import univer.webdev.gettingstarted.Repository.ProjectRepository;
 
 import java.time.LocalDate;
-import java.util.Collections;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -26,14 +23,14 @@ public class ProjectService {
 			LocalDate end
 	) {
 
-		var dbo = projectRepository.save(new Project(
-						1L,
-						name,
-						description,
-						begin,
-						end
-				)
-		);
+		var dbo = projectRepository.save(
+				Project.builder()
+						.name(name)
+						.description(description)
+						.begin(begin)
+						.end(end)
+						.build()
+				);
 		return Optional.of(
 				new ProjectDto(
 						dbo.getId(),
@@ -59,18 +56,43 @@ public class ProjectService {
 	}
 
 	public void setName(Long id, String s) {
+		projectRepository.findById(id).ifPresent(
+				p ->{
+					p.setName(s);
+					projectRepository.saveAndFlush(p);
+				}
+		);
 	}
 
 	public void setDescription(Long id, String s) {
+		projectRepository.findById(id).ifPresent(
+				p ->{
+					p.setDescription(s);
+					projectRepository.saveAndFlush(p);
+				}
+		);
 	}
 
 	public void setBegin(Long id, LocalDate localDate) {
+		projectRepository.findById(id).ifPresent(
+				p ->{
+					p.setBegin(localDate);
+					projectRepository.saveAndFlush(p);
+				}
+		);
 	}
 
 	public void setEnd(Long id, LocalDate localDate) {
+		projectRepository.findById(id).ifPresent(
+				p ->{
+					p.setEnd(localDate);
+					projectRepository.saveAndFlush(p);
+				}
+		);
 	}
 
 	public void delete(Long id) {
+		projectRepository.deleteById(id);
 	}
 
 	public Set<ProjectDto> getByRange(LocalDate startDate, LocalDate endDate) {

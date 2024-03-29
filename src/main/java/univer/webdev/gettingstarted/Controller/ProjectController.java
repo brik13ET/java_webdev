@@ -1,5 +1,6 @@
 package univer.webdev.gettingstarted.Controller;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,27 +13,9 @@ import java.time.LocalDate;
 import java.util.Map;
 import java.util.Optional;
 
-//    Создание проекта.
-//    POST /projects
-//    Должен вернуть 201 код в случае успешного создания проекта, а также сущность созданного проекта.
-
-//    Модификация проекта
-//    PUT /projects/{projectId}
-//    Вернуть 200 код в случае успешной модификации проекта. Если проект с переданным ID не найден, то вернуть 404 код ответа.
-
-//    Удаление проекта
-//    DELETE /projects/{projectId}
-//    Вернуть 204 код.
-
-//    Получение проекта
-//    GET /projects/{projectId}
-//    Вернуть 404 код ошибки если не найден.
-
-//    Получение проектов с фильтрацией по диапазону. Дата начала и дата окончания должна быть в переданном интервале
-//    GET /projects?start_date={start_date}&end_date={end_date}
-
 @Controller
 @RequestMapping("/projects")
+@AllArgsConstructor
 public class ProjectController {
 
     @Autowired
