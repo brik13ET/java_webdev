@@ -111,4 +111,19 @@ public class ProjectService {
 				).collect(Collectors.toSet());
 
 	}
+
+    public List<ProjectDto> search(String query)
+	{
+		return projectRepository.searchLike(query)
+				.stream().map(ProjectDto::toDto).toList();
+    }
+
+	public List<ProjectDto> getAll() {
+		return projectRepository.findAll()
+				.stream().map(ProjectDto::toDto).toList();
+	}
+
+	public Dictionary<Long, Integer> pending() {
+		return
+	}
 }

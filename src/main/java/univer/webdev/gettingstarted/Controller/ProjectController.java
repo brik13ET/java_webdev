@@ -89,12 +89,35 @@ public class ProjectController {
 
     }
 
+
+    // Получение проекта
+    @GetMapping("/all")
+    ResponseEntity getAll() {
+        var dto = projectService.getAll();
+        return new ResponseEntity<>(dto, HttpStatus.OK);
+
+    }
+
     // Получение проектов
-    @GetMapping
+    @GetMapping(params = { "start_date", "end_date" })
     ResponseEntity getProjectFiltered(@RequestParam(name = "start_date") LocalDate start_date, @RequestParam(name = "end_date") LocalDate end_date) {
         var dbo = projectService.getByRange(start_date, end_date);
         if (dbo.isEmpty())
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(dbo, HttpStatus.OK);
     }
+
+    // search
+    @GetMapping(value = "", params = "search")
+    ResponseEntity search(String query)
+    {
+        return new ResponseEntity(projectService.search(query),HttpStatus.OK);
+    }
+
+    @GetMapping("/pending_count")
+    ResponseEntity getPending()
+    {
+        return new ResponseEntity(projectService.pending(), HttpStatus.OK);
+    }
+
 }
