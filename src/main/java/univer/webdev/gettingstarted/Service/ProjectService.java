@@ -1,12 +1,12 @@
 package univer.webdev.gettingstarted.Service;
 
 import lombok.AllArgsConstructor;
-import org.apache.catalina.mapper.Mapper;
 import org.springframework.stereotype.Service;
 import univer.webdev.gettingstarted.Dto.ProjectDto;
 import univer.webdev.gettingstarted.Model.Project;
 import univer.webdev.gettingstarted.Repository.ProjectRepository;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -55,42 +55,6 @@ public class ProjectService {
 		));
 	}
 
-	public void setName(Long id, String s) {
-		projectRepository.findById(id).ifPresent(
-				p ->{
-					p.setName(s);
-					projectRepository.saveAndFlush(p);
-				}
-		);
-	}
-
-	public void setDescription(Long id, String s) {
-		projectRepository.findById(id).ifPresent(
-				p ->{
-					p.setDescription(s);
-					projectRepository.saveAndFlush(p);
-				}
-		);
-	}
-
-	public void setBegin(Long id, LocalDate localDate) {
-		projectRepository.findById(id).ifPresent(
-				p ->{
-					p.setBegin(localDate);
-					projectRepository.saveAndFlush(p);
-				}
-		);
-	}
-
-	public void setEnd(Long id, LocalDate localDate) {
-		projectRepository.findById(id).ifPresent(
-				p ->{
-					p.setEnd(localDate);
-					projectRepository.saveAndFlush(p);
-				}
-		);
-	}
-
 	public void delete(Long id) {
 		projectRepository.deleteById(id);
 	}
@@ -124,6 +88,27 @@ public class ProjectService {
 	}
 
 	public Dictionary<Long, Integer> pending() {
-		return
+		var ret = new HashMap<Long, Integer>();
+		var dbo = projectRepository.getPending();
+		for (int i = 0; i < dbo.size(); i++) {
+		}
+			var curr = dbo.get(i);
+			ret.put(curr.getProjectId(), curr.getTaskCount());
+		}
+
+	public Optional<ProjectDto> update(Long id, ProjectDto dto) {
+		var dbo = projectRepository.findById(dto.getId());
+		if (dbo.isPresent())
+			return Optional.empty();
+		if (dbo.isPresent())
+		{
+				var p = dbo.get();
+				p.setName(       dto.getName()       != null ? dto.getName()        : dto.getName()         );
+				p.setDescription(dto.getDescription()!= null ? dto.getDescription() : dto.getDescription()  );
+				p.setBegin(      dto.getBegin()      != null ? dto.getBegin()       : dto.getBegin()        );
+				p.setEnd(        dto.getEnd()        != null ? dto.getEnd()         : dto.getEnd()          );
+				return Optional.of(ProjectDto.toDto(projectRepository.save(dbo.get())));
+		}
+		return Optional.empty();
 	}
 }
