@@ -78,11 +78,11 @@ public class TaskService {
 				return Optional.empty();
 			var task = dbo_task.get();
 			var project = dbo_project.get();
-			task.setName(taskDto.getName());
-			task.setDescription(taskDto.getDescription());
-			task.setEnd(taskDto.getEnd());
-			task.setIsFinished(taskDto.getIsFinished());
-			task.setProject(project);
+			task.setName 		(taskDto.getName()		  == null ? task.getName()		: taskDto.getName()		  );
+			task.setDescription (taskDto.getDescription() == null ? task.getDescription()	: taskDto.getDescription());
+			task.setEnd 		(taskDto.getEnd()		  == null ? task.getEnd()			: taskDto.getEnd()		  );
+			task.setIsFinished 	(taskDto.getIsFinished()  == null ? task.getIsFinished()	: taskDto.getIsFinished() );
+			task.setProject 	(project);
 			taskRepository.saveAndFlush(task);
 		}
 		return Optional.empty();

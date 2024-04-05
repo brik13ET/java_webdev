@@ -23,7 +23,7 @@ public class ProjectController {
 
     // search
     @GetMapping(value = "", params = "search")
-    ResponseEntity search(String query)
+    ResponseEntity search(@RequestParam(name = "search") String query)
     {
         return new ResponseEntity(projectService.search(query),HttpStatus.OK);
     }
@@ -65,7 +65,7 @@ public class ProjectController {
             @RequestBody ProjectDto rb
     ) {
         rb.setId(id);
-        var ret = projectService.update(id, rb);
+        var ret = projectService.update(rb);
         if (ret.isEmpty())
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(HttpStatus.OK);

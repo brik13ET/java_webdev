@@ -23,9 +23,7 @@ public class TaskController {
             @PathVariable(required = true, name = "projectId") Long project_id
     ) {
         var opt = taskService.getAll(project_id);
-        if (opt.size() != 0)
-            return new ResponseEntity(opt, HttpStatus.OK);
-        return  new ResponseEntity(HttpStatus.NOT_FOUND);
+        return new ResponseEntity(opt, HttpStatus.OK);
     }
 
     // Возвращает задачу по id задачи и id проекта;
