@@ -100,11 +100,11 @@ public class ProjectService {
         var dbo = projectRepository.findById(dto.getId());
         if (dbo.isPresent()) {
             var p = dbo.get();
-            p.setName       (dto.getName()        != null ? dto.getName()        : dto.getName()        );
-            p.setDescription(dto.getDescription() != null ? dto.getDescription() : dto.getDescription() );
-            p.setBegin      (dto.getBegin()       != null ? dto.getBegin()       : dto.getBegin()       );
-            p.setEnd        (dto.getEnd()         != null ? dto.getEnd()         : dto.getEnd()         );
-            return Optional.of(ProjectDto.toDto(projectRepository.save(dbo.get())));
+            p.setName       (dto.getName()        != null ? dto.getName()        : p.getName()        );
+            p.setDescription(dto.getDescription() != null ? dto.getDescription() : p.getDescription() );
+            p.setBegin      (dto.getBegin()       != null ? dto.getBegin()       : p.getBegin()       );
+            p.setEnd        (dto.getEnd()         != null ? dto.getEnd()         : p.getEnd()         );
+            return Optional.of(ProjectDto.toDto(projectRepository.save(p)));
         }
         return Optional.empty();
     }

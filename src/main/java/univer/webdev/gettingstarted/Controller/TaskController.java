@@ -53,7 +53,8 @@ public class TaskController {
             @RequestBody TaskDto task
     ) {
         var dto = taskService.create(project_id, task);
-        return new ResponseEntity(dto, HttpStatus.OK);
+        if (dto.isPresent()) return new ResponseEntity(dto, HttpStatus.OK);
+        return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
 
     // Обновляет задачу. Задача передаётся в теле запроса. Пример JSON тела запроса:
@@ -71,8 +72,9 @@ public class TaskController {
             @PathVariable(required = true, name = "taskId") Long task_id,
             @RequestBody TaskDto task
     ) {
-        taskService.update(task_id, project_id, task);
-        return new ResponseEntity(HttpStatus.OK);
+        var ret = taskService.update(task_id, project_id, task);
+        if (ret.isPresent()) return new ResponseEntity(ret, HttpStatus.OK);
+        return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
     // Удаляет задачу.
     @DeleteMapping("/{taskId}")

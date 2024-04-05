@@ -20,27 +20,14 @@ public class TaskService {
 	public List<TaskDto> getAll(Long project_id) {
 		return taskRepository.findAllByProject(project_id)
 				.stream()
-				.map(
-						t -> new TaskDto(
-								t.getId(),
-								t.getName(),
-								t.getDescription(),
-								t.getEnd(),
-								t.getIsFinished()
-						)
-				).toList();
+				.map(TaskDto::toDto).toList();
 	}
 
 	public Optional<TaskDto> getId(Long project_id, Long task_id) {
-		return taskRepository.findById(task_id).map(
-				t -> new TaskDto(
-						t.getId(),
-						t.getName(),
-						t.getDescription(),
-						t.getEnd(),
-						t.getIsFinished()
-				)
-		);
+		var dbo_object = projectRepository.findById(project_id);
+		if (dbo_object.isEmpty())
+			return Optional.empty();
+		return taskRepository.findById(task_id).map(TaskDto::toDto);
 	}
 
 	public Optional<TaskDto> create(Long project_id, TaskDto taskDto) {
@@ -48,42 +35,25 @@ public class TaskService {
 		var dbo = projectRepository.findById(project_id);
 		if (dbo.isEmpty())
 			return ret;
-
-		var p = dbo.get();
-		var baked = Task.builder()
-				.name(taskDto.getName())
-				.description(taskDto.getDescription())
-				.end(taskDto.getEnd())
-				.isFinished(taskDto.getIsFinished())
-				.project(p)
-				.build();
+		var baked = TaskDto.toEntity(taskDto);
+		baked.setProject(dbo.get());
 		taskRepository.saveAndFlush(baked);
-		ret = Optional.of(
-				new TaskDto(
-						baked.getId(),
-						baked.getName(),
-						baked.getDescription(),
-						baked.getEnd(),
-						baked.getIsFinished()
-				));
+		ret = Optional.of(TaskDto.toDto(baked));
 		return ret;
 	}
 
 	public Optional<TaskDto> update(Long task_id, Long project_id, TaskDto taskDto) {
 		var dbo_task = taskRepository.findById(task_id);
-
-		if (dbo_task.isPresent()) {
-			var dbo_project = projectRepository.findById(project_id);
+		var dbo_project = projectRepository.findById(project_id);
+		if (dbo_task.isPresent() && dbo_task.get().getProject().getId() == dbo_project.get().getId()) {
 			if (dbo_project.isEmpty())
 				return Optional.empty();
 			var task = dbo_task.get();
-			var project = dbo_project.get();
-			task.setName 		(taskDto.getName()		  == null ? task.getName()		: taskDto.getName()		  );
+			task.setName 		(taskDto.getName()		  == null ? task.getName()			: taskDto.getName()		  );
 			task.setDescription (taskDto.getDescription() == null ? task.getDescription()	: taskDto.getDescription());
 			task.setEnd 		(taskDto.getEnd()		  == null ? task.getEnd()			: taskDto.getEnd()		  );
 			task.setIsFinished 	(taskDto.getIsFinished()  == null ? task.getIsFinished()	: taskDto.getIsFinished() );
-			task.setProject 	(project);
-			taskRepository.saveAndFlush(task);
+			return Optional.of(TaskDto.toDto(taskRepository.saveAndFlush(task)));
 		}
 		return Optional.empty();
 	}
