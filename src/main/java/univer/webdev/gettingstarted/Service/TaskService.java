@@ -89,7 +89,9 @@ public class TaskService {
 	}
 
 	public void deleteById(Long project_id, Long task_id) {
-		taskRepository.deleteById(task_id);
+		var t = taskRepository.findById(task_id);
+		if (t.isPresent() && t.get().getProject().getId() == project_id)
+			taskRepository.deleteById(task_id);
 	}
 
 	public void deleteFinished(Long project_id) {
