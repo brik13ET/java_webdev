@@ -1,34 +1,24 @@
 package univer.webdev.gettingstarted.Repository;
 
+import jakarta.transaction.Transactional;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 import univer.webdev.gettingstarted.Model.*;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-public interface TaskRepository {
+@Repository
+public interface TaskRepository extends JpaRepository<Task,Long> {
+	@Query(value = "select t from Task t where t.project.id = ?1 ", nativeQuery = false)
+	List<Task> findAllByProject(Long prjId);
 
-	Optional<Task> add(
-			String name,
-			String description,
-			LocalDate end,
-			Boolean isFinished,
-			Long prjId
-	);
-
-	// TODO: implement
-	Set<Task> getByProject(Long prjId);
-
-	// TODO: implement
-	Set<Task> getByProject(Project prj);
-
-	// TODO: implement
-	void update(Task t);
-
-	// TODO: implement
-	Long createOrUpdate(Task t);
-
-	// TODO: implement
-	void delete(Task t);
-
+	@Modifying
+	@Transactional
+	@Query(value = "delete from Task t where t.project.id = ?1 and t.isFinished = true ", nativeQuery = false)
+	void deleteFinishedByProject(Long prjId);
 }

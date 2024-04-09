@@ -4,39 +4,38 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import univer.webdev.gettingstarted.Model.Project;
+import univer.webdev.gettingstarted.Model.Task;
 
 import java.time.LocalDate;
 
-@Getter
-@Setter
 @Data
 @AllArgsConstructor
-public class ProjectDto {
+public class TaskDto {
     private Long id;
     private String name;
     private String description;
-    private LocalDate begin;
     private LocalDate end;
+    private Boolean isFinished;
 
-    public static Project toEntity(ProjectDto dto)
+    public static Task toEntity(TaskDto dto)
     {
-        return Project.builder()
+        return Task.builder()
                 .id(dto.id)
                 .name(dto.name)
                 .description(dto.description)
-                .begin(dto.begin)
+                .end(dto.end)
+                .isFinished(dto.isFinished)
                 .build();
     }
 
-    public static ProjectDto toDto(Project dbo)
+    public static TaskDto toDto(Task dbo)
     {
-        return new ProjectDto(
+        return new TaskDto(
                 dbo.getId(),
                 dbo.getName(),
                 dbo.getDescription(),
-                dbo.getBegin(),
-                dbo.getEnd()
+                dbo.getEnd(),
+                dbo.getIsFinished()
         );
     }
 }

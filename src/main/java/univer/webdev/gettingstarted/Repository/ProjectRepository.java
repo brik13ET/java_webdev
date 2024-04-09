@@ -1,57 +1,22 @@
 package univer.webdev.gettingstarted.Repository;
 
+import jakarta.persistence.Tuple;
+import lombok.Getter;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 import univer.webdev.gettingstarted.Model.Project;
 
 import java.time.LocalDate;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
-public interface ProjectRepository {
-//    Создание проекта
-    Optional<Project> create(
-            String name,
-            String description,
-            LocalDate begin,
-            LocalDate end
-    );
-//    Модификация проекта
-        /**
-     * Set Project name by ID
-     * @param id Project ID
-     * @param name New Project name
-     * @return TRUE if succsess, FALSE otherwise
-     */
-    boolean setName(Long id, String name);
-        /**
-     * Set Project description by ID
-     * @param id Project ID
-     * @param description New Project name
-     * @return TRUE if succsess, FALSE otherwise
-     */
-    boolean setDescription(Long id, String description);
-        /**
-     * Set Project begin date by ID
-     * @param id Project ID
-     * @param begin New Project begin date
-     * @return TRUE if succsess, FALSE otherwise
-     */
-    boolean setBegin(Long id, LocalDate begin);
-        /**
-     * Set Project end date by ID
-     * @param id Project ID
-     * @param end New Project end date
-     * @return TRUE if succsess, FALSE otherwise
-     */
-    boolean setEnd(Long id, LocalDate end);
-//    Удаление проекта
-        /**
-     * Delete by ID
-     * @param id Project ID
-     * @return TRUE if succsess, FALSE otherwise
-     */
-    boolean delete(Long id);
-//    Получение проекта
-    Optional<Project> getById(Long id);
-//    Получение проектов с фильтрацией по диапазону. Дата начала и дата окончания должна быть в переданном интервале
-    Set<Project> getByRange(LocalDate begin, LocalDate end);
+@Repository
+public interface ProjectRepository extends JpaRepository<Project,Long> {
+	public Set<Project> findByBeginGreaterThanEqualAndEndLessThanEqual(LocalDate from, LocalDate to);
+
+	@Query("select p from Project p where lower(p.name) like lower(concat('%', ?1,'%')) or lower(p.description) like lower(concat('%', ?1,'%'))")
+	Set<Project> searchLike(String query);
+	@Query("select p.id as id, count(t) as count from Project p left join Task t on t.project.id = p.id where t.isFinished = false group by p.id")
+	List<Map<String,Object>> getPending();
+
 }
