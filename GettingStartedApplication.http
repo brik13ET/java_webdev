@@ -1,0 +1,159 @@
+// user get projs
+GET http://localhost:8080/projects/2
+Accept: application/json
+Authorization: Basic anVzdF91c2VyOjEyMzQ=
+
+<> 2024-04-10T071405.200.json
+<> 2024-04-10T071351.200.json
+<> 2024-04-10T071302.200.json
+
+
+
+###
+// admin get projs
+GET http://localhost:8080/projects/2
+Authorization: Basic c3VwZXJhZG1pbjphZG1pbjEyMzQ=
+Accept: application/json
+
+<> 2024-04-10T071407.200.json
+<> 2024-04-10T071352.200.json
+<> 2024-04-10T071306.200.json
+
+
+###
+// anon get projs
+GET http://localhost:8080/projects/2
+Accept: application/json
+
+
+###
+// user set projs
+PUT http://localhost:8080/projects/2
+Content-Type: application/json
+Accept: application/json
+Authorization: Basic anVzdF91c2VyOjEyMzQ=
+
+{
+      "description": "dszasd"
+}
+
+<> 2024-04-10T073158.403.json
+<> 2024-04-10T073153.403.json
+<> 2024-04-10T071411.403.json
+<> 2024-04-10T071355.403.json
+<> 2024-04-10T071341.403.json
+<> 2024-04-10T071312.403.json
+
+
+
+###
+// admin set projs
+PUT http://localhost:8080/projects/2
+Content-Type: application/json
+Accept: application/json
+Authorization: Basic c3VwZXJhZG1pbjphZG1pbjEyMzQ=
+
+{
+      "description": "ahahahh"
+}
+
+
+###
+// anon set projs
+PUT http://localhost:8080/projects/2
+Content-Type: application/json
+Accept: application/json
+
+{
+      "description": "fefefe"
+}
+
+
+###
+// USER pending
+GET http://localhost:8080/projects/pending_count
+Accept: application/json
+Authorization: Basic anVzdF91c2VyOjEyMzQ=
+
+<> 2024-04-10T073123.200.json
+<> 2024-04-10T073032.200.json
+<> 2024-04-10T072941.200.json
+<> 2024-04-10T072926.200.json
+<> 2024-04-10T072818.200.json
+<> 2024-04-10T071603.200.json
+<> 2024-04-10T071600.200.json
+
+
+###
+// admin pending
+GET http://localhost:8080/projects/pending_count
+Accept: application/json
+Authorization: Basic c3VwZXJhZG1pbjphZG1pbjEyMzQ=
+
+<> 2024-04-10T073121.200.json
+<> 2024-04-10T073038.200.json
+<> 2024-04-10T072941.200.json
+<> 2024-04-10T072926.200.json
+<> 2024-04-10T072818.200.json
+<> 2024-04-10T071603.200.json
+<> 2024-04-10T071600.200.json
+
+
+###
+// ANON pending
+GET http://localhost:8080/projects/pending_count
+Accept: application/json
+
+<> 2024-04-10T073121.200.json
+<> 2024-04-10T073038.200.json
+<> 2024-04-10T072941.200.json
+<> 2024-04-10T072926.200.json
+<> 2024-04-10T072818.200.json
+<> 2024-04-10T071603.200.json
+<> 2024-04-10T071600.200.json
+
+
+###
+// user create task
+POST http://localhost:8080/projects/2/tasks
+Content-Type: application/json
+Accept: application/json
+Authorization: Basic anVzdF91c2VyOjEyMzQ=
+
+{
+  "name"        : "TASK 3",
+  "description" : "FOR PROJECT 2",
+  "end"         : "2024-06-01",
+  "isFinished"  : false
+}
+
+<> 2024-04-10T073115.200.json
+
+
+###
+// ADMIN create task
+POST http://localhost:8080/projects/2/tasks
+Content-Type: application/json
+Accept: application/json
+Authorization: Basic c3VwZXJhZG1pbjphZG1pbjEyMzQ=
+
+{
+  "name"        : "TASK 3",
+  "description" : "FOR PROJECT 2",
+  "end"         : "2024-06-01",
+  "isFinished"  : false
+}
+
+<> 2024-04-10T073111.200.json
+<> 2024-04-10T072841.200.json
+<> 2024-04-10T072840.200.json
+<> 2024-04-10T072839-1.200.json
+<> 2024-04-10T072839.200.json
+<> 2024-04-10T072837.200.json
+<> 2024-04-10T072817.200.json
+<> 2024-04-10T072814.200.json
+<> 2024-04-10T072808.200.json
+<> 2024-04-10T072622.200.json
+
+
+###
