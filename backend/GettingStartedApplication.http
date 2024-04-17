@@ -1,5 +1,5 @@
 // user get projs
-GET http://localhost:8080/projects/2
+GET http://localhost:8080/projects/4
 Accept: application/json
 Authorization: Basic anVzdF91c2VyOjEyMzQ=
 
@@ -11,7 +11,7 @@ Authorization: Basic anVzdF91c2VyOjEyMzQ=
 
 ###
 // admin get projs
-GET http://localhost:8080/projects/2
+GET http://localhost:8080/projects/4
 Authorization: Basic c3VwZXJhZG1pbjphZG1pbjEyMzQ=
 Accept: application/json
 
@@ -22,13 +22,13 @@ Accept: application/json
 
 ###
 // anon get projs
-GET http://localhost:8080/projects/2
+GET http://localhost:8080/projects/all
 Accept: application/json
 
 
 ###
 // user set projs
-PUT http://localhost:8080/projects/2
+PUT http://localhost:8080/projects/4
 Content-Type: application/json
 Accept: application/json
 Authorization: Basic anVzdF91c2VyOjEyMzQ=
@@ -48,7 +48,7 @@ Authorization: Basic anVzdF91c2VyOjEyMzQ=
 
 ###
 // admin set projs
-PUT http://localhost:8080/projects/2
+PUT http://localhost:8080/projects/4
 Content-Type: application/json
 Accept: application/json
 Authorization: Basic c3VwZXJhZG1pbjphZG1pbjEyMzQ=
@@ -60,7 +60,7 @@ Authorization: Basic c3VwZXJhZG1pbjphZG1pbjEyMzQ=
 
 ###
 // anon set projs
-PUT http://localhost:8080/projects/2
+PUT http://localhost:8080/projects/4
 Content-Type: application/json
 Accept: application/json
 
@@ -115,7 +115,7 @@ Accept: application/json
 
 ###
 // user create task
-POST http://localhost:8080/projects/2/tasks
+POST http://localhost:8080/projects/4/tasks
 Content-Type: application/json
 Accept: application/json
 Authorization: Basic anVzdF91c2VyOjEyMzQ=

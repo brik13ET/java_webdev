@@ -35,19 +35,14 @@ public class WebSecurityConfig {
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+
 		return http
-				.csrf(AbstractHttpConfigurer::disable)
-//				.formLogin(x -> x.defaultSuccessUrl("/projects", true))
 				.httpBasic(Customizer.withDefaults())
 				.formLogin( form -> form
 						.defaultSuccessUrl("/projects", true)
 						.permitAll()
 				)
 				.authorizeHttpRequests(x -> x
-//						.requestMatchers(HttpMethod.GET,    "/**").authenticated()
-//						.requestMatchers(HttpMethod.POST,   "/projectts/*/tasks/**").authenticated()
-//						.requestMatchers(HttpMethod.PUT,    "/projectts/*/tasks/**").authenticated()
-//						.requestMatchers(HttpMethod.DELETE, "/projectts/*/tasks/**").authenticated()
 						.requestMatchers(HttpMethod.POST,   "/projects/*").hasRole("ADMIN")
 						.requestMatchers(HttpMethod.PUT,    "/projects/*").hasRole("ADMIN")
 						.requestMatchers(HttpMethod.DELETE, "/projects/*").hasRole("ADMIN")

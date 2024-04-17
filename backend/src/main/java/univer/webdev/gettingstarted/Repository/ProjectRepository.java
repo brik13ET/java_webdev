@@ -16,7 +16,7 @@ public interface ProjectRepository extends JpaRepository<Project,Long> {
 
 	@Query("select p from Project p where lower(p.name) like lower(concat('%', ?1,'%')) or lower(p.description) like lower(concat('%', ?1,'%'))")
 	Set<Project> searchLike(String query);
-	@Query("select p.id as id, count(t) as count from Project p left join Task t on t.project.id = p.id where t.isFinished = false group by p.id")
+	@Query("select p.id as id, (select count(t) from Task t where t.isFinished = False and p.id = t.project.id) as count from Project p")
 	List<Map<String,Object>> getPending();
 
 }
