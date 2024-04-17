@@ -1,0 +1,55 @@
+:host
+{
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal
+{
+	padding: 2em;
+	background-color: #f0f8ff8f;
+	border-radius: 2em;
+}
+
+.modal-footer
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.modal-footer .btn, .modal-footer .btn-active
+{
+	align-self: center;
+	text-align: center;
+	min-width: 20%;
+}
+
+.modal .btn
+{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: medium;
+	padding: 1em;
+	border-radius: 2em;
+    border-width: 0;
+}
+.modal
+{
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
+	width: 80%;
+	padding: 2em;
+	text-align: center;
+}
+
+textarea
+{
+	resize: vertical;
+	scroll-margin-right: 2em;
+	max-height: 50vh;
+	min-height: 3em;
+}

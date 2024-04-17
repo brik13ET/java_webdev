@@ -1,0 +1,18 @@
+<h2>{{project.name}}</h2>
+<p>{{project.description}}</p><br>
+
+<div class="card-bottom">
+    <div>
+        <span>Дата начала: {{project.begin   | date: "dd/MM/yyyy"}}</span><br>
+        <span>Дата завершения: {{project.end | date: "dd/MM/yyyy"}}</span><br>
+        <span *ngIf="backlog != 0">Открытых задач: {{backlog}}</span>
+    </div>
+    <div class="card_ops_footer">
+        <a [routerLink]="['/projects', project.id]" class="btn-active">Редактировать</a>
+        <a (click)="deleteprj(project.id)"			class="btn-active">Удалить</a>
+        <a routerLink="/task/{{project.id}}"		class="btn-active">Посмотреть задачи</a>
+    </div>
+</div>
+
+<router-outlet></router-outlet>
+

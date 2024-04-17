@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="56a26d73-6d4b-4586-96ad-a2fa460b017f" name="Changes" comment="RC3 lr2">
+      <change afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/GettingStartedApplication.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/compose.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/java_webdev.postman_collection.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/univer/webdev/gettingstarted/Configuration/PassEncoderConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/univer/webdev/gettingstarted/Configuration/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/univer/webdev/gettingstarted/Controller/ProjectController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/univer/webdev/gettingstarted/Controller/TaskController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/univer/webdev/gettingstarted/Dto/ProjectDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/univer/webdev/gettingstarted/Dto/TaskDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/univer/webdev/gettingstarted/GettingStartedApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/univer/webdev/gettingstarted/Model/Project.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/univer/webdev/gettingstarted/Model/Task.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/univer/webdev/gettingstarted/Repository/ProjectRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/univer/webdev/gettingstarted/Repository/TaskRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/univer/webdev/gettingstarted/Service/ProjectService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/univer/webdev/gettingstarted/Service/TaskService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/univer/webdev/gettingstarted/GettingStartedApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GettingStartedApplication.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/compose.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_webdev.postman_collection.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/univer/webdev/gettingstarted/Configuration/PassEncoderConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/univer/webdev/gettingstarted/Configuration/WebSecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/univer/webdev/gettingstarted/Controller/ProjectController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/univer/webdev/gettingstarted/Controller/TaskController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/univer/webdev/gettingstarted/Dto/ProjectDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/univer/webdev/gettingstarted/Dto/TaskDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/univer/webdev/gettingstarted/GettingStartedApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/univer/webdev/gettingstarted/Model/Project.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/univer/webdev/gettingstarted/Model/Task.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/univer/webdev/gettingstarted/Repository/ProjectRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/univer/webdev/gettingstarted/Repository/TaskRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/univer/webdev/gettingstarted/Service/ProjectService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/univer/webdev/gettingstarted/Service/TaskService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/univer/webdev/gettingstarted/GettingStartedApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="lr1" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="456636d4-76ee-4a2f-95fc-465731375812" />
+        <option name="url" value="git@github.com:brik13ET/java_webdev.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2dJkKY76L7oP2U9kT3XAW1eTpA0" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Docker.compose.yaml: Compose Deployment.executor": "Run",
+    "HTTP Request.All in java_webdev.executor": "Run",
+    "HTTP Request.GettingStartedApplication | #1.executor": "Run",
+    "HTTP Request.GettingStartedApplication | #10.executor": "Run",
+    "HTTP Request.GettingStartedApplication | #2.executor": "Run",
+    "HTTP Request.GettingStartedApplication | #3.executor": "Run",
+    "HTTP Request.GettingStartedApplication | #4.executor": "Run",
+    "HTTP Request.GettingStartedApplication | #5.executor": "Run",
+    "HTTP Request.GettingStartedApplication | #6.executor": "Run",
+    "HTTP Request.GettingStartedApplication | #7.executor": "Run",
+    "HTTP Request.GettingStartedApplication | #8.executor": "Run",
+    "HTTP Request.GettingStartedApplication | #9.executor": "Run",
+    "HTTP Request.GettingStartedApplication | Возвращает все задачи;.executor": "Run",
+    "HTTP Request.GettingStartedApplication | Возвращает все проекты с опциональной фильтрацией по тексту, встречающемуся в описании или названии проекта без учёта регистра. Если текст не передан, то возвращаются все проекты. Задачи возвращать не требуется;.executor": "Run",
+    "HTTP Request.GettingStartedApplication | Возвращает задачу по id задачи и id проекта;.executor": "Run",
+    "HTTP Request.GettingStartedApplication | Возвращает проект с id=projectId;.executor": "Run",
+    "HTTP Request.GettingStartedApplication | Обновляет задачу. Задача передаётся в теле запроса. Пример JSON тела запроса: (Для создания аналогично).executor": "Run",
+    "HTTP Request.GettingStartedApplication | Обновляет проект;.executor": "Run",
+    "HTTP Request.GettingStartedApplication | Получение количества незакрытых задач к проектам#2.executor": "Run",
+    "HTTP Request.GettingStartedApplication | Получение количества незакрытых задач к проектам.executor": "Run",
+    "HTTP Request.GettingStartedApplication | Получение проектов.executor": "Run",
+    "HTTP Request.GettingStartedApplication | Создаёт задачу;.executor": "Run",
+    "HTTP Request.GettingStartedApplication | Создаёт проект (без задач);.executor": "Run",
+    "HTTP Request.GettingStartedApplication | Удаление завершённых задач.executor": "Run",
+    "HTTP Request.GettingStartedApplication | Удаление проекта. При удалении проекта удаляются все связанные задачи..executor": "Run",
+    "HTTP Request.GettingStartedApplication | Удаляет задачу..executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.GettingStartedApplication.executor": "Run",
+    "git-widget-placeholder": "lr2",
+    "jdk.selected.JAVA_MODULE": "openjdk-21",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "Y:/java/java_webdev/backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RunManager" selected="Spring Boot.GettingStartedApplication">
+    <configuration name="GettingStartedApplication | Создаёт задачу;" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/GettingStartedApplication.http" index="10" requestIdentifier="Создаёт задачу;" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="GettingStartedApplication | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/GettingStartedApplication.http" index="2" requestIdentifier="#2" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="GettingStartedApplication | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/GettingStartedApplication.http" index="3" requestIdentifier="#3" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="GettingStartedApplication | #4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/GettingStartedApplication.http" index="4" requestIdentifier="#4" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="GettingStartedApplication | #5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/GettingStartedApplication.http" index="5" requestIdentifier="#5" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="GettingStartedApplication | #6" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/GettingStartedApplication.http" index="6" requestIdentifier="#6" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="GettingStartedApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="getting-started" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="univer.webdev.gettingstarted.GettingStartedApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.GettingStartedApplication | #6" />
+        <item itemvalue="HTTP Request.GettingStartedApplication | #5" />
+        <item itemvalue="HTTP Request.GettingStartedApplication | #4" />
+        <item itemvalue="HTTP Request.GettingStartedApplication | #3" />
+        <item itemvalue="HTTP Request.GettingStartedApplication | #2" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="56a26d73-6d4b-4586-96ad-a2fa460b017f" name="Changes" comment="" />
+      <created>1709733505377</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1709733505377</updated>
+      <workItem from="1709733506994" duration="2357000" />
+      <workItem from="1709831804771" duration="6649000" />
+      <workItem from="1709895028987" duration="6966000" />
+      <workItem from="1709911816791" duration="7457000" />
+      <workItem from="1709971228831" duration="1133000" />
+      <workItem from="1711195630583" duration="1517000" />
+      <workItem from="1711711024252" duration="11099000" />
+      <workItem from="1711922566326" duration="349000" />
+      <workItem from="1712152414540" duration="2929000" />
+      <workItem from="1712313330440" duration="10106000" />
+      <workItem from="1712326631886" duration="1747000" />
+      <workItem from="1712916460832" duration="118000" />
+      <workItem from="1713355450271" duration="685000" />
+    </task>
+    <task id="LOCAL-00001" summary="fixed projectDto">
+      <option name="closed" value="true" />
+      <created>1709735567279</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1709735567279</updated>
+    </task>
+    <task id="LOCAL-00002" summary="jpa lr1">
+      <option name="closed" value="true" />
+      <created>1709902657511</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1709902657511</updated>
+    </task>
+    <task id="LOCAL-00003" summary="sync">
+      <option name="closed" value="true" />
+      <created>1712173842620</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1712173842620</updated>
+    </task>
+    <task id="LOCAL-00004" summary="RC lr2">
+      <option name="closed" value="true" />
+      <created>1712319405506</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1712319405506</updated>
+    </task>
+    <task id="LOCAL-00005" summary="RC2 lr2&#10;fix delete from other project (TaskService::deleteById)">
+      <option name="closed" value="true" />
+      <created>1712320734825</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1712320734825</updated>
+    </task>
+    <task id="LOCAL-00006" summary="RC3 lr2">
+      <option name="closed" value="true" />
+      <created>1712326650617</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1712326650617</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="main" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="lr2" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/lr2" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="fixed projectDto" />
+    <MESSAGE value="jpa lr1" />
+    <MESSAGE value="fixes" />
+    <MESSAGE value="sync" />
+    <MESSAGE value="RC lr2" />
+    <MESSAGE value="RC2 lr2&#10;fix delete from other project (TaskService::deleteById)" />
+    <MESSAGE value="RC3 lr2" />
+    <option name="LAST_COMMIT_MESSAGE" value="RC3 lr2" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

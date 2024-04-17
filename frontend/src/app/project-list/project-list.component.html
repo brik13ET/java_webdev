@@ -1,0 +1,28 @@
+
+<div id="head">
+	<input #searchBox type="search" placeholder="Найти проект" id="search" (keydown.enter)="search( searchBox.value || '')" (keydown,esc)="getAllProjs()">
+	<a routerLink="/projects/new" class="btn-active">Создать проект</a>
+</div>
+
+
+<ng-content></ng-content>
+<ng-template *ngIf="!updating && projects_blog.length != 0; then hasproj; else noproj"></ng-template>
+
+
+<ng-template #hasproj>
+	<app-project-card *ngFor="let prj of projects_blog" [backlog]="prj[1]" [project]="prj[0]" (update)="getAllProjs()"></app-project-card>
+</ng-template>
+
+<ng-template #noproj>
+	<div id="noproj">
+		<ng-template *ngIf="updating; then loading; else notFound "></ng-template>
+		<ng-template #loading>
+			<span>Загрузка</span>
+			
+		</ng-template>
+		<ng-template #notFound>
+			<span>Проекты не найдены</span>
+		</ng-template>
+	</div>
+</ng-template>
+

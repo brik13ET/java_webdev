@@ -1,0 +1,22 @@
+<ng-template *ngIf="!loading; then datawrapper; else waiter"></ng-template>
+
+<ng-template #waiter>
+	<div class="modal">
+		<span>Обработка данных... <i id="wait"></i></span>
+	</div>
+</ng-template>
+<ng-template #datawrapper>
+	<form #data class="modal">
+		<input type="hidden"[(ngModel)]="prj.id"			name="id"			value="{{prj.id}}"			placeholder=" "							>
+		<input type="text"	[(ngModel)]="prj.name"			name="name"			value="{{prj.name}}"		placeholder="Введите имя"				>
+		<textarea			[(ngModel)]="prj.description"	name="description"	value="{{prj.description}}"	placeholder="Введите описание"			></textarea>
+		<input type="date"	[(ngModel)]="prj.begin"			name="begin"		value="{{prj.begin}}"		placeholder="Выберите дату начала"		>
+		<input type="date"	[(ngModel)]="prj.end"			name="end"			value="{{prj.end}}"			placeholder="Выберите дату окончания"	>
+		<div class="modal-footer">
+			<a href="javascript:void(0)" (click)="goBack()"	class="btn">Назад</a>
+			<a href="javascript:void(0)" (click)="apply()"	class="btn-active" *ngIf="(isNew)">	Применить	</a>
+			<a href="javascript:void(0)" (click)="create()"	class="btn-active" *ngIf="!(isNew)">	Создать 	</a>
+			<a href="javascript:void(0)" (click)="clear()"	class="btn">Очистить</a>
+		</div>
+	</form>
+</ng-template>
