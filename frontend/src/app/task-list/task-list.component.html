@@ -1,1 +1,22 @@
-<p>task-list works!</p>
+<a href="javascript:void(0)" (click)="goBack()"	class="btn">Назад</a>
+
+<ng-content></ng-content>
+<ng-template *ngIf="!updating && tasks.length != 0; then hastasks; else notask"></ng-template>
+
+<ng-template #hastasks>
+	<app-task-card *ngFor="let t of tasks" [projectid]="project" [task]="t" (update)="getAllTasks()"></app-task-card>
+</ng-template>
+
+<ng-template #notask>
+	<div>
+		<ng-template *ngIf="updating; then loading; else notFound "></ng-template>
+		<ng-template #loading>
+			<span>Загрузка</span>
+			
+		</ng-template>
+		<ng-template id="noproj" #notFound>
+			<span>Задачи не найдены</span>
+		</ng-template>
+	</div>
+</ng-template>
+

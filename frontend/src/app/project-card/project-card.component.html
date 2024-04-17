@@ -1,5 +1,5 @@
-<h2>{{project.name}}</h2>
-<p>{{project.description}}</p><br>
+<h2>{{project.name.substring(0, 180)}} {{project.name.length > 180 ? '...' : ''}}</h2>
+<p>{{project.description.substring(0, 180)}} {{project.description.length > 180 ? '...' : ''}}</p><br>
 
 <div class="card-bottom">
     <div>
@@ -10,7 +10,7 @@
     <div class="card_ops_footer">
         <a [routerLink]="['/projects', project.id]" class="btn-active">Редактировать</a>
         <a (click)="deleteprj(project.id)"			class="btn-active">Удалить</a>
-        <a routerLink="/task/{{project.id}}"		class="btn-active">Посмотреть задачи</a>
+        <a [routerLink]="['/tasks', project.id]"	class="btn-active">Посмотреть задачи</a>
     </div>
 </div>
 

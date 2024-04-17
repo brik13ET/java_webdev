@@ -1,0 +1,53 @@
+
+:host{
+    display: flex;
+    gap: 2em;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+
+#noproj
+{
+	margin: 0 2em;
+    background-color: #f0f8ff;
+    border-width: .4em;
+    border-color: black;
+    border-radius: .4em;
+    padding: 1em;
+}
+
+#noproj span
+{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: larger;
+	text-align: center;
+}
+
+input#search
+{
+    padding: .6em;
+    border-width: 0;
+    border-color: black;
+    border-radius: 1.6em;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+	font-size: larger;
+}
+
+#head
+{
+    position: sticky;
+    top: 0;
+    background: linear-gradient(to bottom, #333 0%, #76766630 80%, #76766600 100%) ;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 2em;
+    padding: 1em 2em;
+}
+
+#head input[type="search"]
+{
+    flex-grow: 1;
+    flex-shrink: 1;
+}

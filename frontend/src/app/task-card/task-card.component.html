@@ -1,1 +1,15 @@
-<p>task-card works!</p>
+<h2>{{task.name.substring(0, 180)}} {{task.name.length > 180 ? '...' : ''}}</h2>
+<p>{{task.description.substring(0, 180)}} {{task.description.length > 180 ? '...' : ''}}</p><br>
+
+<div class="card-bottom">
+    <div>
+        <span>Дата завершения: {{task.end | date: "dd/MM/yyyy"}}</span><br>
+        <span>Статус: {{task.isFinished ? 'Выполняется' : 'Выполнено'}}</span><br>
+    </div>
+    <div class="card_ops_footer">
+        <a (click)="deletetsk()"			class="btn-active">Удалить</a>
+    </div>
+</div>
+
+<router-outlet></router-outlet>
+
